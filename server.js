@@ -18,7 +18,7 @@ const NIM_API_KEY = process.env.NIM_API_KEY;
 const SHOW_REASONING = false; // Set to true to show reasoning with <think> tags
 
 // 🔥 THINKING MODE TOGGLE - Enables thinking for specific models that support it
-const ENABLE_THINKING_MODE = true; // Set to true to enable chat_template_kwargs thinking parameter
+const ENABLE_THINKING_MODE = false; // Set to true to enable chat_template_kwargs thinking parameter
 
 // Model mapping (adjust based on available NIM models)
 const MODEL_MAPPING = {
@@ -108,7 +108,7 @@ app.post('/v1/chat/completions', async (req, res) => {
     'Authorization': `Bearer ${NIM_API_KEY}`,
     'Content-Type': 'application/json'
   },
-  timeout: 120000, // ← Add this: 120 seconds (2 minutes)
+  timeout: 120, // ← Add this: 120 seconds (2 minutes)
   responseType: stream ? 'stream' : 'json'
 });
     
